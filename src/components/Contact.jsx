@@ -76,7 +76,7 @@ export default function Contact() {
                 <span className="text-accent-orange">●</span> 当前接受自由职业委托与全职机会。
                 <br />通常会在 24 小时内回复���的消息。
               </p>
-              <a href="/李文简历.pdf" download="李文简历.pdf" className="btn-primary text-sm w-full justify-center">
+              <a href={profile.resumeFile} download="李文简历.pdf" className="btn-primary text-sm w-full justify-center">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" /></svg>
                 下载完整简历
               </a>
