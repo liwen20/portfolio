@@ -5,14 +5,15 @@
 
 // 资源公共前缀：自动适配部署平台
 // Vite 的 import.meta.env.BASE_URL 在 build 时由 vite.config.js 的 base 决定：
-// - Cloudflare 构建：base = 'https://liwen20.github.io/portfolio/'（资源全走 GitHub Pages 源）
+// - Cloudflare 构建：base = '/'（JS/CSS 由 Cloudflare 提供，hash 文件名跨平台不同）
 // - GitHub Pages 构建：base = '/portfolio/'（本地相对路径）
 const BASE = import.meta.env.BASE_URL || '/'
 
-// 静态资源统一前缀：Cloudflare Pages 分块存储对图片/视频慢且不支持 Range，
-// 故 Cloudflare 构建时 base 直接指向 GitHub Pages 源，BASE 即为完整 GitHub URL；
-// GitHub Pages 环境用本地相对路径。两者统一为 BASE。
-const STATIC_BASE = BASE
+// 静态资源统一前缀（图片/视频/PDF，文件名固定无 hash）：
+// Cloudflare Pages 分块存储对图片/视频慢且不支持 Range，故 Cloudflare / 本地预览
+// （base='/'）下这些资源走 GitHub Pages 源（TTFB ~0.2s + CDN 缓存好 + 支持 Range）；
+// GitHub Pages 环境（base='/portfolio/'）用本地相对路径。
+const STATIC_BASE = BASE === '/' ? 'https://liwen20.github.io/portfolio/' : BASE
 
 export const profile = {
   name: '李文',
