@@ -7,6 +7,13 @@
 // Vite 的 import.meta.env.BASE_URL 在 build 时由 vite.config.js 的 base 决定
 const BASE = import.meta.env.BASE_URL || '/'
 
+// 视频专用前缀：
+// Cloudflare Pages 对部署的静态文件不支持 HTTP Range 请求（206），
+// 视频必须 Range 才能流式播放，所以 Cloudflare / 本地预览（base='/'）下
+// 视频走 GitHub Pages 源（支持 206 Range）。图片不需要 Range，保持本地即可。
+// GitHub Pages 环境（base='/portfolio/'）用本地相对路径。
+const VIDEO_BASE = BASE === '/' ? 'https://liwen20.github.io/portfolio/' : BASE
+
 export const profile = {
   name: '李文',
   nameEn: 'LI WEN',
@@ -84,7 +91,7 @@ export const works = {
         `${BASE}ai-nightingale-7-overview.jpg`,     // IP 设定总览
       ],
       // 视频 Demo（点击播放视频）
-      videoSrc: `${BASE}work-nightingale.mp4`,
+      videoSrc: `${VIDEO_BASE}work-nightingale.mp4`,
       projectInfo: {
         bg: '以"夜莺在星空中航行"为意象，运用 Midjourney / ChatGPT / Seedance 2.0 / 豆包AI 辅助完成系列 AI 生成视觉与动态影像。从概念草图到产品视觉再到动态短片，全流程探索 AI 工具的协同创作能力。',
         role: 'AI 创意导演 / 视觉设计',
@@ -111,7 +118,7 @@ export const works = {
         `${BASE}ai-elclasico-5-neymar-turnaround.png`,  // 内马尔·Q版三视图（蓝红·11号）
       ],
       // 视频 Demo（点击播放视频）
-      videoSrc: `${BASE}work-elclasico.mp4`,
+      videoSrc: `${VIDEO_BASE}work-elclasico.mp4`,
       projectInfo: {
         bg: '以西班牙超级杯"国家德比"为主题，用 AI 生成 Q 版皇马/巴萨球员角色、赛场氛围与动态视觉效果，探索 AI 在体育 IP 视觉化上的应用。',
         role: 'AI 创意导演 / 视觉设计',
