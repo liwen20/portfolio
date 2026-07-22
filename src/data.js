@@ -3,16 +3,16 @@
 //  数据来源：李文简历.pdf（2024-2025）
 // ============================================
 
-// 资源公共前缀：自动适配 GitHub Pages 子路径（/portfolio/）和本地预览（/）
-// Vite 的 import.meta.env.BASE_URL 在 build 时由 vite.config.js 的 base 决定
+// 资源公共前缀：自动适配部署平台
+// Vite 的 import.meta.env.BASE_URL 在 build 时由 vite.config.js 的 base 决定：
+// - Cloudflare 构建：base = 'https://liwen20.github.io/portfolio/'（资源全走 GitHub Pages 源）
+// - GitHub Pages 构建：base = '/portfolio/'（本地相对路径）
 const BASE = import.meta.env.BASE_URL || '/'
 
-// 静态资源统一前缀（图片/视频/PDF）：
-// Cloudflare Pages 对部署文件分块存储 + cache-control: max-age=0（不缓存），
-// 图片/视频在其上加载慢、且不支持视频 Range。因此 Cloudflare / 本地预览
-// （base='/'）下所有静态资源走 GitHub Pages 源（支持 Range + CDN 缓存好）；
-// GitHub Pages 环境（base='/portfolio/'）用本地相对路径。
-const STATIC_BASE = BASE === '/' ? 'https://liwen20.github.io/portfolio/' : BASE
+// 静态资源统一前缀：Cloudflare Pages 分块存储对图片/视频慢且不支持 Range，
+// 故 Cloudflare 构建时 base 直接指向 GitHub Pages 源，BASE 即为完整 GitHub URL；
+// GitHub Pages 环境用本地相对路径。两者统一为 BASE。
+const STATIC_BASE = BASE
 
 export const profile = {
   name: '李文',
