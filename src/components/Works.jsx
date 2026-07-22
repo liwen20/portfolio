@@ -38,7 +38,7 @@ export default function Works() {
               <div className="relative aspect-[16/10] overflow-hidden">
                 {work.posterSrc || work.coverSrc ? (
                   <img src={work.posterSrc || work.coverSrc} alt={work.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                 ) : (
                   <div className="w-full h-full bg-gradient-to-br from-accent-orange/12 to-accent-orange-light/6" />
                 )}

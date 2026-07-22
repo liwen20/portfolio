@@ -9,7 +9,7 @@ export default function About() {
           {/* 左侧：视觉卡片 */}
           <div className="reveal relative">
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden group">
-              <img src={profile.avatar} alt={profile.name} className="w-full h-full object-cover" />
+              <img src={profile.avatar} alt={profile.name} className="w-full h-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/30 to-transparent" />
               {/* LW 字母 */}
               <div className="absolute top-6 left-6">
