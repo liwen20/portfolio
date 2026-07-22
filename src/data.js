@@ -7,12 +7,12 @@
 // Vite 的 import.meta.env.BASE_URL 在 build 时由 vite.config.js 的 base 决定
 const BASE = import.meta.env.BASE_URL || '/'
 
-// 视频专用前缀：
-// Cloudflare Pages 对部署的静态文件不支持 HTTP Range 请求（206），
-// 视频必须 Range 才能流式播放，所以 Cloudflare / 本地预览（base='/'）下
-// 视频走 GitHub Pages 源（支持 206 Range）。图片不需要 Range，保持本地即可。
+// 静态资源统一前缀（图片/视频/PDF）：
+// Cloudflare Pages 对部署文件分块存储 + cache-control: max-age=0（不缓存），
+// 图片/视频在其上加载慢、且不支持视频 Range。因此 Cloudflare / 本地预览
+// （base='/'）下所有静态资源走 GitHub Pages 源（支持 Range + CDN 缓存好）；
 // GitHub Pages 环境（base='/portfolio/'）用本地相对路径。
-const VIDEO_BASE = BASE === '/' ? 'https://liwen20.github.io/portfolio/' : BASE
+const STATIC_BASE = BASE === '/' ? 'https://liwen20.github.io/portfolio/' : BASE
 
 export const profile = {
   name: '李文',
@@ -31,10 +31,10 @@ export const profile = {
   jobStatus: '2024 — 2025',
   available: true,
   showreelYear: '2026',
-  avatar: `${BASE}about-card-bg.jpg`,
-  showreelVideo: `${BASE}about-showreel.mp4`,
-  heroVideo: `${BASE}hero-bg.mp4`,
-  resumeFile: `${BASE}李文简历.pdf`,
+  avatar: `${STATIC_BASE}about-card-bg.jpg`,
+  showreelVideo: `${STATIC_BASE}about-showreel.mp4`,
+  heroVideo: `${STATIC_BASE}hero-bg.mp4`,
+  resumeFile: `${STATIC_BASE}李文简历.pdf`,
   social: [
     { name: 'Behance', url: '#' },
     { name: 'Dribbble', url: '#' },
@@ -78,20 +78,20 @@ export const works = {
       desc: '运用 Midjourney / ChatGPT / Seedance 2.0 / 豆包AI 辅助完成的 AI 创意项目',
       tag: 'AI Art',
       type: 'project',  // project 类型：卡片上同时有产品图集热区和视频热区
-      posterSrc: `${BASE}ai-nightingale-banner.jpg`,  // 夜莺航行主视觉 banner（黄蓝飞船·太空城市场景）
+      posterSrc: `${STATIC_BASE}ai-nightingale-banner.jpg`,  // 夜莺航行主视觉 banner（黄蓝飞船·太空城市场景）
       // 产品图集（点击展开详情弹窗，与 VI 平面卡片详情样式一致）
       gallery: [
-        `${BASE}ai-nightingale-8-character-sheet.jpg`, // SKY-001 角色设定（置顶·最新上传）
-        `${BASE}ai-nightingale-1-ostrich.jpg`,     // 驼鸟骑行·沙漠
-        `${BASE}ai-nightingale-2-capsule.jpg`,     // 机甲操控胶囊·废墟
-        `${BASE}ai-nightingale-3-poster1.jpg`,      // 宇宙飞船系列海报
-        `${BASE}ai-nightingale-4-savanna.jpg`,      // 非洲草原·跳跃
-        `${BASE}ai-nightingale-5-back.jpg`,         // 未来机甲背影·赛博城市
-        `${BASE}ai-nightingale-6-cockpit.jpg`,      // 驾驶舱
-        `${BASE}ai-nightingale-7-overview.jpg`,     // IP 设定总览
+        `${STATIC_BASE}ai-nightingale-8-character-sheet.jpg`, // SKY-001 角色设定（置顶·最新上传）
+        `${STATIC_BASE}ai-nightingale-1-ostrich.jpg`,     // 驼鸟骑行·沙漠
+        `${STATIC_BASE}ai-nightingale-2-capsule.jpg`,     // 机甲操控胶囊·废墟
+        `${STATIC_BASE}ai-nightingale-3-poster1.jpg`,      // 宇宙飞船系列海报
+        `${STATIC_BASE}ai-nightingale-4-savanna.jpg`,      // 非洲草原·跳跃
+        `${STATIC_BASE}ai-nightingale-5-back.jpg`,         // 未来机甲背影·赛博城市
+        `${STATIC_BASE}ai-nightingale-6-cockpit.jpg`,      // 驾驶舱
+        `${STATIC_BASE}ai-nightingale-7-overview.jpg`,     // IP 设定总览
       ],
       // 视频 Demo（点击播放视频）
-      videoSrc: `${VIDEO_BASE}work-nightingale.mp4`,
+      videoSrc: `${STATIC_BASE}work-nightingale.mp4`,
       projectInfo: {
         bg: '以"夜莺在星空中航行"为意象，运用 Midjourney / ChatGPT / Seedance 2.0 / 豆包AI 辅助完成系列 AI 生成视觉与动态影像。从概念草图到产品视觉再到动态短片，全流程探索 AI 工具的协同创作能力。',
         role: 'AI 创意导演 / 视觉设计',
@@ -108,17 +108,17 @@ export const works = {
       desc: '以"皇家马德里 vs 巴塞罗那"为题材，运用 AI 生成 Q 版足球明星角色与赛事视觉设计',
       tag: 'AI Art',
       type: 'project',  // project 类型：卡片上同时有产品图集热区和视频热区
-      posterSrc: `${BASE}ai-elclasico-banner.jpg`,  // 银河德比主视觉 banner
+      posterSrc: `${STATIC_BASE}ai-elclasico-banner.jpg`,  // 银河德比主视觉 banner
       // 产品图集
       gallery: [
-        `${BASE}ai-elclasico-1-cr7-pixie.png`,        // C罗·Q版三视图（白·7号）
-        `${BASE}ai-elclasico-2-cr7-single.png`,       // C罗·单人站姿
-        `${BASE}ai-elclasico-3-messi-neymar-dual.png`, // 梅西+内马尔·双人对峙
-        `${BASE}ai-elclasico-4-messi-turnaround.png`,  // 梅西·Q版三视图（蓝红·10号）
-        `${BASE}ai-elclasico-5-neymar-turnaround.png`,  // 内马尔·Q版三视图（蓝红·11号）
+        `${STATIC_BASE}ai-elclasico-1-cr7-pixie.png`,        // C罗·Q版三视图（白·7号）
+        `${STATIC_BASE}ai-elclasico-2-cr7-single.png`,       // C罗·单人站姿
+        `${STATIC_BASE}ai-elclasico-3-messi-neymar-dual.png`, // 梅西+内马尔·双人对峙
+        `${STATIC_BASE}ai-elclasico-4-messi-turnaround.png`,  // 梅西·Q版三视图（蓝红·10号）
+        `${STATIC_BASE}ai-elclasico-5-neymar-turnaround.png`,  // 内马尔·Q版三视图（蓝红·11号）
       ],
       // 视频 Demo（点击播放视频）
-      videoSrc: `${VIDEO_BASE}work-elclasico.mp4`,
+      videoSrc: `${STATIC_BASE}work-elclasico.mp4`,
       projectInfo: {
         bg: '以西班牙超级杯"国家德比"为主题，用 AI 生成 Q 版皇马/巴萨球员角色、赛场氛围与动态视觉效果，探索 AI 在体育 IP 视觉化上的应用。',
         role: 'AI 创意导演 / 视觉设计',
@@ -136,8 +136,8 @@ export const works = {
       desc: '移动支付与生活服务产品 · Fintech / Mobile Payment',
       tag: 'UI Design',
       type: 'poster',
-      posterSrc: `${BASE}work-jinKongZhangGui-banner.webp`,
-      detailSrc: `${BASE}work-jinKongZhangGui.webp`,
+      posterSrc: `${STATIC_BASE}work-jinKongZhangGui-banner.webp`,
+      detailSrc: `${STATIC_BASE}work-jinKongZhangGui.webp`,
       projectInfo: {
         bg: '面向 C 端用户的移动支付与生活服务产品。负责整体 UI 视觉设计、交互流程优化及版本迭代，打造流畅的支付体验。',
         role: '主设计师',
@@ -153,8 +153,8 @@ export const works = {
       desc: '知识付费金融服务产品 · Knowledge Payment / Finance',
       tag: 'UI / PM',
       type: 'poster',
-      posterSrc: `${BASE}work-jieYunTong-banner.webp`,
-      detailSrc: `${BASE}work-jieYunTong.webp`,
+      posterSrc: `${STATIC_BASE}work-jieYunTong-banner.webp`,
+      detailSrc: `${STATIC_BASE}work-jieYunTong.webp`,
       projectInfo: {
         bg: '知识付费金融服务产品，以 UI/PM 双角色主导产品设计全流程。从需求分析到原型设计、视觉输出、开发跟进，端到端把控产品质量。',
         role: 'UI 设计师兼项目经理',
@@ -170,8 +170,8 @@ export const works = {
       desc: '核心金融产品 UI 界面设计与视觉规范维护',
       tag: 'UI Design',
       type: 'poster',
-      posterSrc: `${BASE}work-xinHuiKe-banner.webp`,
-      detailSrc: `${BASE}work-xinHuiKe.webp`,
+      posterSrc: `${STATIC_BASE}work-xinHuiKe-banner.webp`,
+      detailSrc: `${STATIC_BASE}work-xinHuiKe.webp`,
       projectInfo: {
         bg: '负责公司核心金融产品的 UI 界面设计与视觉规范维护，主导产品改版迭代，优化关键路径转化率。',
         role: '主设计师',
@@ -189,10 +189,10 @@ export const works = {
       desc: '品牌视觉 — 新锐电子雾化器品牌全案设计',
       tag: 'VI Design',
       type: 'gallery',
-      posterSrc: `${BASE}vi-binlan-banner.webp`,
+      posterSrc: `${STATIC_BASE}vi-binlan-banner.webp`,
       gallery: [
-        `${BASE}vi-binlan-1.webp`, `${BASE}vi-binlan-2.webp`, `${BASE}vi-binlan-3.webp`,
-        `${BASE}vi-binlan-4.webp`, `${BASE}vi-binlan-5.webp`, `${BASE}vi-binlan-6.webp`,
+        `${STATIC_BASE}vi-binlan-1.webp`, `${STATIC_BASE}vi-binlan-2.webp`, `${STATIC_BASE}vi-binlan-3.webp`,
+        `${STATIC_BASE}vi-binlan-4.webp`, `${STATIC_BASE}vi-binlan-5.webp`, `${STATIC_BASE}vi-binlan-6.webp`,
       ],
       projectInfo: {
         bg: '为新兴电子雾化器品牌"槟蓝"打造完整的视觉识别系统，从 Logo 到包装、从线上宣传到线下物料，建立统一且有辨识度的品牌语言。',
@@ -209,10 +209,10 @@ export const works = {
       desc: '品牌视觉 — 商业海报与活动主视觉系列',
       tag: 'VI Design',
       type: 'gallery',
-      posterSrc: `${BASE}vi-poster-1.webp`,
+      posterSrc: `${STATIC_BASE}vi-poster-1.webp`,
       gallery: [
-        `${BASE}vi-poster-1.webp`, `${BASE}vi-poster-2.webp`, `${BASE}vi-poster-3.webp`,
-        `${BASE}vi-poster-4.webp`, `${BASE}vi-poster-5.webp`, `${BASE}vi-poster-6.webp`,
+        `${STATIC_BASE}vi-poster-1.webp`, `${STATIC_BASE}vi-poster-2.webp`, `${STATIC_BASE}vi-poster-3.webp`,
+        `${STATIC_BASE}vi-poster-4.webp`, `${STATIC_BASE}vi-poster-5.webp`, `${STATIC_BASE}vi-poster-6.webp`,
       ],
       projectInfo: {
         bg: '为多个品牌与活动设计的商业海报合集，涵盖产品发布、节日营销、活动主视觉等场景。每张海报都围绕核心诉求构建独特的视觉叙事。',
@@ -229,10 +229,10 @@ export const works = {
       desc: '品牌视觉 — 原创科幻 IP「夜莺航行」项目展板',
       tag: 'VI Design',
       type: 'gallery',
-      posterSrc: `${BASE}vi-materials-nightingale-1.jpg`,
+      posterSrc: `${STATIC_BASE}vi-materials-nightingale-1.jpg`,
       gallery: [
-        `${BASE}vi-materials-nightingale-1.jpg`,
-        `${BASE}vi-materials-nightingale-2.jpg`,
+        `${STATIC_BASE}vi-materials-nightingale-1.jpg`,
+        `${STATIC_BASE}vi-materials-nightingale-2.jpg`,
       ],
       projectInfo: {
         bg: '原创科幻 IP「夜莺航行」系列品牌展板设计，从世界观架构、核心角色、主力战机、视觉风格到 IP 应用矩阵，全方位呈现科幻 IP 的全产业链开发思路。',
