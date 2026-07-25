@@ -187,6 +187,21 @@ export default function Works() {
               </div>
             )}
 
+            {/* 双端口设计 */}
+            {selected.projectInfo?.ports?.length > 0 && (
+              <div className="p-6 border-b border-white/5">
+                <div className="text-xs font-mono text-accent-orange uppercase tracking-wider mb-3">双端口设计</div>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {selected.projectInfo.ports.map((p) => (
+                    <div key={p.name} className="glass-card p-5 rounded-xl">
+                      <div className="text-sm font-bold text-white mb-2">{p.name}</div>
+                      <p className="text-xs text-text-soft leading-relaxed">{p.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* 图片内容 */}
             <div className="p-6">
               {selected.gallery ? (
