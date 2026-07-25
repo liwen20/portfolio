@@ -10,10 +10,11 @@
 const BASE = import.meta.env.BASE_URL || '/'
 
 // 静态资源统一前缀（图片/视频/PDF，文件名固定无 hash）：
-// Cloudflare Pages 分块存储对图片/视频慢且不支持 Range，故 Cloudflare / 本地预览
-// （base='/'）下这些资源走 GitHub Pages 源（TTFB ~0.2s + CDN 缓存好 + 支持 Range）；
-// GitHub Pages 环境（base='/portfolio/'）用本地相对路径。
-const STATIC_BASE = BASE === '/' ? 'https://liwen20.github.io/portfolio/' : BASE
+// 两个域名各自独立部署，资源各走各的源 ——
+// Cloudflare Pages 构建（base='/'）走 Cloudflare 自身源；
+// GitHub Pages 构建（base='/portfolio/'）走本地相对路径。
+// 直接复用 BASE，不再跨平台引用 GitHub Pages 源。
+const STATIC_BASE = BASE
 
 export const profile = {
   name: '李文',
