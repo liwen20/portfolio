@@ -63,10 +63,17 @@ export default function Contact() {
               <h3 className="text-lg font-bold text-white mb-4">社交媒体</h3>
               <div className="flex flex-wrap gap-3">
                 {profile.social.map((s) => (
-                  <a key={s.name} href={s.url} target="_blank" rel="noopener noreferrer"
-                    className="px-4 py-2.5 rounded-xl bg-bg-card border border-white/5 text-text-soft hover:text-accent-orange hover:border-accent-orange/30 hover:-translate-y-1 transition-all text-sm">
-                    {s.name}
-                  </a>
+                  s.url && s.url !== '#' ? (
+                    <a key={s.name} href={s.url} target="_blank" rel="noopener noreferrer"
+                      className="px-4 py-2.5 rounded-xl bg-bg-card border border-white/5 text-text-soft hover:text-accent-orange hover:border-accent-orange/30 hover:-translate-y-1 transition-all text-sm">
+                      {s.name}
+                    </a>
+                  ) : (
+                    <span key={s.name}
+                      className="px-4 py-2.5 rounded-xl bg-bg-card border border-white/5 text-text-dim text-sm cursor-default">
+                      {s.name}
+                    </span>
+                  )
                 ))}
               </div>
             </div>
