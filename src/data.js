@@ -129,6 +129,29 @@ export const works = {
         result: '完成 Q 版角色三视图设计（C罗/梅西/内马尔）、双人组合构图与 9 幕分镜脚本，并产出一支 52 秒 H.264 动态短片，验证了体育 IP 的 AI 视觉化流程。',
       },
     },
+    // 红色 NONEO 墨镜品牌 — 新项目
+    {
+      id: 'noneo',
+      name: '红色NONEO墨镜',
+      category: 'ai',
+      desc: '运用 AI 生成的潮流墨镜品牌视觉设计与动态影像',
+      tag: 'AI Art / Brand',
+      type: 'project',  // project 类型：卡片上同时有产品图集热区和视频热区
+      posterSrc: `${STATIC_BASE}ai-noneo-banner.jpg`,  // NONEO 墨镜主视觉 banner
+      // 产品图集（待补充）
+      gallery: [
+        // TODO: 上传详情图后在此添加
+      ],
+      // 视频 Demo（待上传）
+      // videoSrc: `${STATIC_BASE}work-noneo.mp4`,
+      projectInfo: {
+        bg: '以"红色 NONEO 墨镜"为品牌核心意象，运用 AI 工具生成具有强烈视觉冲击力的品牌形象、产品展示与动态影像。探索 AI 在时尚配饰领域的品牌视觉表达可能性。',
+        role: 'AI 创意导演 / 视觉设计',
+        tools: ['Midjourney', 'ChatGPT', 'Seedance 2.0'],
+        duration: '2026.07 - 进行中',
+        result: '完成品牌主视觉形象设定与动态影像 Demo 制作中。',
+      },
+    },
   ],
   ui: [
     {
