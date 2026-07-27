@@ -142,8 +142,8 @@ export const works = {
       gallery: [
         // TODO: 上传详情图后在此添加
       ],
-      // 视频 Demo（待上传）
-      // videoSrc: `${STATIC_BASE}work-noneo.mp4`,
+      // 视频 Demo
+      videoSrc: `${STATIC_BASE}225ca79cb1922e68fcbb90c173bef732.mp4`,
       projectInfo: {
         bg: '以"红色 NONEO 墨镜"为品牌核心意象，运用 AI 工具生成具有强烈视觉冲击力的品牌形象、产品展示与动态影像。探索 AI 在时尚配饰领域的品牌视觉表达可能性。',
         role: 'AI 创意导演 / 视觉设计',
