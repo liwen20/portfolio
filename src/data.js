@@ -266,6 +266,14 @@ export const works = {
         `${STATIC_BASE}vi-materials-nightingale-1.jpg`,
         `${STATIC_BASE}vi-materials-nightingale-2.jpg`,
       ],
+      // 宣传 live 动态展示（海报的动态视频版本，瀑布流展示）
+      liveVideos: [
+        {
+          src: `${STATIC_BASE}work-nightingale.mp4`, // 占位：夜莺航行宣传片（待替换为真正 poster live 视频）
+          poster: `${STATIC_BASE}vi-materials-nightingale-1.jpg`,
+          title: '夜莺航行·动态主视觉',
+        },
+      ],
       projectInfo: {
         bg: '原创科幻 IP「夜莺航行」系列品牌展板设计，从世界观架构、核心角色、主力战机、视觉风格到 IP 应用矩阵，全方位呈现科幻 IP 的全产业链开发思路。',
         role: 'AI 创意 / 品牌设计师',

@@ -6,6 +6,7 @@ export default function Works() {
   const [active, setActive] = useState('ai')
   const [selected, setSelected] = useState(null)
   const [videoItem, setVideoItem] = useState(null)
+  const [liveItem, setLiveItem] = useState(null)
 
   const currentWorks = works[active] || []
 
@@ -111,6 +112,20 @@ export default function Works() {
                     )}
                   </div>
                 )}
+
+                {/* 宣传 live 动态展示按钮（有 liveVideos 的卡片统一显示） */}
+                {work.liveVideos?.length > 0 && (
+                  <button
+                    onClick={() => setLiveItem(work)}
+                    className="mt-3 w-full flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-sm font-medium bg-gradient-to-r from-accent-orange/20 to-accent-orange-light/10 text-accent-orange border border-accent-orange/30 hover:from-accent-orange/30 hover:to-accent-orange-light/20 transition-all"
+                  >
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-orange opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-orange"></span>
+                    </span>
+                    宣传 LIVE · {work.liveVideos.length} 个动态海报
+                  </button>
+                )}
               </div>
             </article>
           ))}
@@ -135,6 +150,61 @@ export default function Works() {
                 </div>
               </div>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* 宣传 LIVE 动态展示弹窗（瀑布流） */}
+      {liveItem?.liveVideos?.length > 0 && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-bg/90 backdrop-blur-md animate-fade-in" onClick={() => setLiveItem(null)}>
+          <div className="glass-card max-w-6xl w-full max-h-[88vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+            {/* 头部 */}
+            <div className="sticky top-0 z-10 relative p-6 border-b border-white/5 bg-bg-card/95 backdrop-blur-xl">
+              <button onClick={() => setLiveItem(null)} className="absolute top-4 right-4 w-10 h-10 rounded-full bg-bg/60 flex items-center justify-center text-white hover:bg-bg transition">✕</button>
+              <div className="flex items-center gap-3 mb-2">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-orange opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent-orange"></span>
+                </span>
+                <span className="text-xs font-mono text-accent-orange uppercase tracking-wider">LIVE</span>
+                <span className="text-xs text-text-dim">·</span>
+                <span className="text-xs font-mono text-text-dim">{liveItem.tag}</span>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold text-white">{liveItem.name} · 宣传 LIVE</h3>
+              <p className="text-text-soft mt-2">海报的动态影像展示，每个视频为对应海报的 live 动态版本。</p>
+            </div>
+
+            {/* 瀑布流展示每个动态 live 视频 */}
+            <div className="p-6 columns-1 sm:columns-2 lg:columns-3 gap-5 space-y-5">
+              {liveItem.liveVideos.map((v, i) => (
+                <div key={i} className="break-inside-avoid rounded-xl overflow-hidden border border-white/5 bg-bg/40 group">
+                  <div className="relative">
+                    <video
+                      src={v.src}
+                      poster={v.poster}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-auto object-cover"
+                    />
+                    <span className="absolute top-3 left-3 flex items-center gap-1.5 text-[10px] font-mono text-white bg-bg/60 backdrop-blur-sm px-2 py-1 rounded">
+                      <span className="relative flex h-1.5 w-1.5">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-red-500"></span>
+                      </span>
+                      LIVE
+                    </span>
+                  </div>
+                  {v.title && (
+                    <div className="p-3 text-sm text-text-soft flex items-center gap-2">
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5 text-accent-orange flex-shrink-0"><path d="M8 5v14l11-7z" /></svg>
+                      {v.title}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       )}
@@ -214,6 +284,40 @@ export default function Works() {
                 selected.detailSrc && <img src={selected.detailSrc} alt={selected.name} className="w-full rounded-xl" />
               )}
             </div>
+
+            {/* 动态 LIVE 瀑布流展示 */}
+            {selected.liveVideos?.length > 0 && (
+              <div className="p-6 border-t border-white/5">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="relative flex h-2.5 w-2.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-orange opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent-orange"></span>
+                  </span>
+                  <div className="text-xs font-mono text-accent-orange uppercase tracking-wider">动态 LIVE · 宣传海报动态影像</div>
+                </div>
+                <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 space-y-5">
+                  {selected.liveVideos.map((v, i) => (
+                    <div key={i} className="break-inside-avoid rounded-xl overflow-hidden border border-white/5 bg-bg/40">
+                      <video
+                        src={v.src}
+                        poster={v.poster}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="w-full h-auto object-cover"
+                      />
+                      {v.title && (
+                        <div className="p-3 text-sm text-text-soft flex items-center gap-2">
+                          <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5 text-accent-orange flex-shrink-0"><path d="M8 5v14l11-7z" /></svg>
+                          {v.title}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* 项目成果 */}
             {selected.projectInfo?.result && (
