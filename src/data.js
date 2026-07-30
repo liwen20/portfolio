@@ -85,6 +85,7 @@ export const works = {
       gallery: [
         `${STATIC_BASE}ai-nightingale-poster.png`,       // 主宣发海报·IDEAS IGNITE CREATE TAKE FLIGHT
         `${STATIC_BASE}ai-nightingale-brandguide.png`,    // 品牌系统全案（16宫格：Logo/角色/色彩/字体/包装/周边等）
+        `${STATIC_BASE}ai-nightingale-poster-trio.png`,   // 三联海报合集（灵感一触即发 / 现在创想创造未来 / 探索未知无限可能）
         `${STATIC_BASE}ai-nightingale-8-character-sheet.jpg`, // SKY-001 角色设定
         `${STATIC_BASE}ai-nightingale-1-ostrich.jpg`,     // 驼鸟骑行·沙漠
         `${STATIC_BASE}ai-nightingale-2-capsule.jpg`,     // 机甲操控胶囊·废墟
