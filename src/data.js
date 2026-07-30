@@ -83,7 +83,9 @@ export const works = {
       posterSrc: `${STATIC_BASE}ai-nightingale-banner.jpg`,  // 夜莺航行主视觉 banner（黄蓝飞船·太空城市场景）
       // 产品图集（点击展开详情弹窗，与 VI 平面卡片详情样式一致）
       gallery: [
-        `${STATIC_BASE}ai-nightingale-8-character-sheet.jpg`, // SKY-001 角色设定（置顶·最新上传）
+        `${STATIC_BASE}ai-nightingale-poster.png`,       // 主宣发海报·IDEAS IGNITE CREATE TAKE FLIGHT
+        `${STATIC_BASE}ai-nightingale-brandguide.png`,    // 品牌系统全案（16宫格：Logo/角色/色彩/字体/包装/周边等）
+        `${STATIC_BASE}ai-nightingale-8-character-sheet.jpg`, // SKY-001 角色设定
         `${STATIC_BASE}ai-nightingale-1-ostrich.jpg`,     // 驼鸟骑行·沙漠
         `${STATIC_BASE}ai-nightingale-2-capsule.jpg`,     // 机甲操控胶囊·废墟
         `${STATIC_BASE}ai-nightingale-3-poster1.jpg`,      // 宇宙飞船系列海报
