@@ -269,9 +269,9 @@ export const works = {
       // 宣传 live 动态展示（海报的动态视频版本，瀑布流展示）
       liveVideos: [
         {
-          src: `${STATIC_BASE}work-nightingale.mp4`, // 占位：夜莺航行宣传片（待替换为真正 poster live 视频）
+          src: `${STATIC_BASE}nightingale-xiaomo.mp4`,
           poster: `${STATIC_BASE}vi-materials-nightingale-1.jpg`,
-          title: '夜莺航行·动态主视觉',
+          title: '夜莺·小莫 动态海报',
         },
       ],
       projectInfo: {
