@@ -33,7 +33,7 @@ export const profile = {
   jobStatus: '2024 — 2025',
   available: true,
   showreelYear: '2026',
-  avatar: `${STATIC_BASE}about-card-bg.jpg`,
+  avatar: `${STATIC_BASE}about-card-bg.webp`,
   showreelVideo: `${STATIC_BASE}about-showreel.mp4`,
   heroVideo: `${STATIC_BASE}hero-bg.mp4`,
   resumeFile: `${STATIC_BASE}李文简历.pdf`,
@@ -80,20 +80,20 @@ export const works = {
       desc: '运用 Midjourney / ChatGPT / Seedance 2.0 / 豆包AI 辅助完成的 AI 创意项目',
       tag: 'AI Art',
       type: 'project',  // project 类型：卡片上同时有产品图集热区和视频热区
-      posterSrc: `${STATIC_BASE}ai-nightingale-banner.jpg`,  // 夜莺航行主视觉 banner（黄蓝飞船·太空城市场景）
+      posterSrc: `${STATIC_BASE}ai-nightingale-banner.webp`,  // 夜莺航行主视觉 banner（黄蓝飞船·太空城市场景）
       // 产品图集（点击展开详情弹窗，与 VI 平面卡片详情样式一致）
       gallery: [
-        `${STATIC_BASE}ai-nightingale-poster.png`,       // 主宣发海报·IDEAS IGNITE CREATE TAKE FLIGHT
-        `${STATIC_BASE}ai-nightingale-brandguide.png`,    // 品牌系统全案（16宫格：Logo/角色/色彩/字体/包装/周边等）
-        `${STATIC_BASE}ai-nightingale-poster-trio.png`,   // 三联海报合集（灵感一触即发 / 现在创想创造未来 / 探索未知无限可能）
-        `${STATIC_BASE}ai-nightingale-8-character-sheet.jpg`, // SKY-001 角色设定
-        `${STATIC_BASE}ai-nightingale-1-ostrich.jpg`,     // 驼鸟骑行·沙漠
-        `${STATIC_BASE}ai-nightingale-2-capsule.jpg`,     // 机甲操控胶囊·废墟
-        `${STATIC_BASE}ai-nightingale-3-poster1.jpg`,      // 宇宙飞船系列海报
-        `${STATIC_BASE}ai-nightingale-4-savanna.jpg`,      // 非洲草原·跳跃
-        `${STATIC_BASE}ai-nightingale-5-back.jpg`,         // 未来机甲背影·赛博城市
-        `${STATIC_BASE}ai-nightingale-6-cockpit.jpg`,      // 驾驶舱
-        `${STATIC_BASE}ai-nightingale-7-overview.jpg`,     // IP 设定总览
+        `${STATIC_BASE}ai-nightingale-poster.webp`,       // 主宣发海报·IDEAS IGNITE CREATE TAKE FLIGHT
+        `${STATIC_BASE}ai-nightingale-brandguide.webp`,    // 品牌系统全案（16宫格：Logo/角色/色彩/字体/包装/周边等）
+        `${STATIC_BASE}ai-nightingale-poster-trio.webp`,   // 三联海报合集（灵感一触即发 / 现在创想创造未来 / 探索未知无限可能）
+        `${STATIC_BASE}ai-nightingale-8-character-sheet.webp`, // SKY-001 角色设定
+        `${STATIC_BASE}ai-nightingale-1-ostrich.webp`,     // 驼鸟骑行·沙漠
+        `${STATIC_BASE}ai-nightingale-2-capsule.webp`,     // 机甲操控胶囊·废墟
+        `${STATIC_BASE}ai-nightingale-3-poster1.webp`,      // 宇宙飞船系列海报
+        `${STATIC_BASE}ai-nightingale-4-savanna.webp`,      // 非洲草原·跳跃
+        `${STATIC_BASE}ai-nightingale-5-back.webp`,         // 未来机甲背影·赛博城市
+        `${STATIC_BASE}ai-nightingale-6-cockpit.webp`,      // 驾驶舱
+        `${STATIC_BASE}ai-nightingale-7-overview.webp`,     // IP 设定总览
       ],
       // 视频 Demo（点击播放视频）
       videoSrc: `${STATIC_BASE}work-nightingale.mp4`,
@@ -113,14 +113,14 @@ export const works = {
       desc: '以"皇家马德里 vs 巴塞罗那"为题材，运用 AI 生成 Q 版足球明星角色与赛事视觉设计',
       tag: 'AI Art',
       type: 'project',  // project 类型：卡片上同时有产品图集热区和视频热区
-      posterSrc: `${STATIC_BASE}ai-elclasico-banner.jpg`,  // 银河德比主视觉 banner
+      posterSrc: `${STATIC_BASE}ai-elclasico-banner.webp`,  // 银河德比主视觉 banner
       // 产品图集
       gallery: [
-        `${STATIC_BASE}ai-elclasico-1-cr7-pixie.png`,        // C罗·Q版三视图（白·7号）
-        `${STATIC_BASE}ai-elclasico-2-cr7-single.png`,       // C罗·单人站姿
-        `${STATIC_BASE}ai-elclasico-3-messi-neymar-dual.png`, // 梅西+内马尔·双人对峙
-        `${STATIC_BASE}ai-elclasico-4-messi-turnaround.png`,  // 梅西·Q版三视图（蓝红·10号）
-        `${STATIC_BASE}ai-elclasico-5-neymar-turnaround.png`,  // 内马尔·Q版三视图（蓝红·11号）
+        `${STATIC_BASE}ai-elclasico-1-cr7-pixie.webp`,        // C罗·Q版三视图（白·7号）
+        `${STATIC_BASE}ai-elclasico-2-cr7-single.webp`,       // C罗·单人站姿
+        `${STATIC_BASE}ai-elclasico-3-messi-neymar-dual.webp`, // 梅西+内马尔·双人对峙
+        `${STATIC_BASE}ai-elclasico-4-messi-turnaround.webp`,  // 梅西·Q版三视图（蓝红·10号）
+        `${STATIC_BASE}ai-elclasico-5-neymar-turnaround.webp`,  // 内马尔·Q版三视图（蓝红·11号）
       ],
       // 视频 Demo（点击播放视频）
       videoSrc: `${STATIC_BASE}work-elclasico.mp4`,
@@ -140,7 +140,7 @@ export const works = {
       desc: '运用 AI 生成的潮流墨镜品牌视觉设计与动态影像',
       tag: 'AI Art / Brand',
       type: 'project',  // project 类型：卡片上同时有产品图集热区和视频热区
-      posterSrc: `${STATIC_BASE}ai-noneo-banner.jpg`,  // NONEO 墨镜主视觉 banner
+      posterSrc: `${STATIC_BASE}ai-noneo-banner.webp`,  // NONEO 墨镜主视觉 banner
       // 产品图集（待补充）
       gallery: [
         // TODO: 上传详情图后在此添加
@@ -261,16 +261,16 @@ export const works = {
       desc: '品牌视觉 — 原创科幻 IP「夜莺航行」项目展板',
       tag: 'VI Design',
       type: 'gallery',
-      posterSrc: `${STATIC_BASE}vi-materials-nightingale-1.jpg`,
+      posterSrc: `${STATIC_BASE}vi-materials-nightingale-1.webp`,
       gallery: [
-        `${STATIC_BASE}vi-materials-nightingale-1.jpg`,
-        `${STATIC_BASE}vi-materials-nightingale-2.jpg`,
+        `${STATIC_BASE}vi-materials-nightingale-1.webp`,
+        `${STATIC_BASE}vi-materials-nightingale-2.webp`,
       ],
       // 宣传 live 动态展示（海报的动态视频版本，瀑布流展示）
       liveVideos: [
         {
           src: `${STATIC_BASE}nightingale-xiaomo.mp4`,
-          poster: `${STATIC_BASE}vi-materials-nightingale-1.jpg`,
+          poster: `${STATIC_BASE}vi-materials-nightingale-1.webp`,
           title: '夜莺·小莫 动态海报',
         },
       ],

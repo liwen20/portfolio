@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { works, categories } from '../data'
 import SectionHeader from './SectionHeader'
+import SmartImage from './SmartImage'
 
 export default function Works() {
   const [active, setActive] = useState('ai')
@@ -38,8 +39,13 @@ export default function Works() {
               {/* 封面 */}
               <div className="relative aspect-[16/10] overflow-hidden">
                 {work.posterSrc || work.coverSrc ? (
-                  <img src={work.posterSrc || work.coverSrc} alt={work.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                  <SmartImage
+                    src={work.posterSrc || work.coverSrc}
+                    alt={work.name}
+                    eager
+                    className="w-full h-full"
+                    imgClassName="group-hover:scale-105 transition-transform duration-500"
+                  />
                 ) : (
                   <div className="w-full h-full bg-gradient-to-br from-accent-orange/12 to-accent-orange-light/6" />
                 )}
@@ -137,7 +143,7 @@ export default function Works() {
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-bg/90 backdrop-blur-md animate-fade-in" onClick={() => setVideoItem(null)}>
           <div className="relative max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
             <button onClick={() => setVideoItem(null)} className="absolute -top-12 right-0 text-white hover:text-accent-orange transition">✕ 关闭</button>
-            <video src={videoItem.videoSrc} controls autoPlay playsInline className="w-full rounded-2xl" />
+            <video src={videoItem.videoSrc} poster={videoItem.posterSrc} controls autoPlay playsInline className="w-full rounded-2xl bg-bg" />
             {/* 视频项目信息 */}
             {videoItem.projectInfo && (
               <div className="mt-4 glass-card p-6">
@@ -277,11 +283,11 @@ export default function Works() {
               {selected.gallery ? (
                 <div className="grid grid-cols-2 gap-4">
                   {selected.gallery.map((src, i) => (
-                    <img key={i} src={src} alt={`${selected.name} ${i + 1}`} className="w-full rounded-xl" loading="lazy" />
+                    <SmartImage key={i} src={src} alt={`${selected.name} ${i + 1}`} className="rounded-xl" />
                   ))}
                 </div>
               ) : (
-                selected.detailSrc && <img src={selected.detailSrc} alt={selected.name} className="w-full rounded-xl" />
+                selected.detailSrc && <SmartImage src={selected.detailSrc} alt={selected.name} className="rounded-xl" />
               )}
             </div>
 
