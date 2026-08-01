@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { works, categories } from '../data'
 import SectionHeader from './SectionHeader'
 import SmartImage from './SmartImage'
+import SpiralWorks from './SpiralWorks'
 
 export default function Works() {
   const [active, setActive] = useState('ai')
@@ -31,6 +32,9 @@ export default function Works() {
         </div>
 
         {/* 作品网格 */}
+        {active === 'vi' ? (
+          <SpiralWorks items={works.vi} onSelect={setSelected} />
+        ) : (
         <div className={`grid gap-6 ${active === 'ai' ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}`}>
           {currentWorks.map((work, i) => (
             <article key={`${active}-${work.id}`}
@@ -136,6 +140,7 @@ export default function Works() {
             </article>
           ))}
         </div>
+        )}
       </div>
 
       {/* 视频弹窗 */}
