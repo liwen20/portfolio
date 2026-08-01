@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { profile } from '../data'
+import CountUp from './CountUp'
 
 export default function Hero() {
   const canvasRef = useRef(null)
@@ -137,7 +138,9 @@ export default function Hero() {
               {profile.stats.map((s) => (
                 <div key={s.label}>
                   {s.value !== undefined ? (
-                    <div className="text-2xl font-din font-bold text-white">{s.value}<span className="text-accent-orange">{s.suffix}</span></div>
+                    <div className="text-2xl font-din font-bold text-white">
+                      <CountUp value={s.value} suffix={s.suffix} className="" suffixClassName="text-accent-orange" />
+                    </div>
                   ) : (
                     <div className="text-lg font-din font-bold text-white">{s.text}</div>
                   )}

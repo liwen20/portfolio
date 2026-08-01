@@ -1,5 +1,6 @@
 import { profile } from '../data'
 import SectionHeader from './SectionHeader'
+import CountUp from './CountUp'
 
 export default function About() {
   return (
@@ -63,7 +64,7 @@ export default function About() {
                 <div key={s.label} className="glass-card p-4 text-center">
                   {s.value !== undefined ? (
                     <div className="font-din text-3xl font-bold text-white">
-                      {s.value}<span className="text-accent-orange">{s.suffix}</span>
+                      <CountUp value={s.value} suffix={s.suffix} suffixClassName="text-accent-orange" />
                     </div>
                   ) : (
                     <div className="font-din text-xl font-bold text-white">{s.text}</div>
