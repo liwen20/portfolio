@@ -146,9 +146,9 @@ export default function Works() {
       {/* 视频弹窗 */}
       {videoItem?.videoSrc && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-bg/90 backdrop-blur-md animate-fade-in" onClick={() => setVideoItem(null)}>
-          <div className="relative max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
-            <button onClick={() => setVideoItem(null)} className="absolute -top-12 right-0 text-white hover:text-accent-orange transition">✕ 关闭</button>
-            <video src={videoItem.videoSrc} poster={videoItem.posterSrc} controls autoPlay playsInline className="w-full rounded-2xl bg-bg" />
+          <div className="relative max-w-3xl w-full" onClick={(e) => e.stopPropagation()}>
+            <button onClick={() => setVideoItem(null)} className="fixed top-5 right-6 z-[101] w-10 h-10 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-white hover:bg-white/20 hover:text-accent-orange transition backdrop-blur-md">✕</button>
+            <video src={videoItem.videoSrc} poster={videoItem.posterSrc} controls preload="metadata" playsInline className="max-h-[72vh] w-auto max-w-full rounded-2xl bg-bg" />
             {/* 视频项目信息 */}
             {videoItem.projectInfo && (
               <div className="mt-4 glass-card p-6">
