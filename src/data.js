@@ -94,6 +94,7 @@ export const works = {
         `${STATIC_BASE}ai-nightingale-5-back.webp`,         // 未来机甲背影·赛博城市
         `${STATIC_BASE}ai-nightingale-6-cockpit.webp`,      // 驾驶舱
         `${STATIC_BASE}ai-nightingale-7-overview.webp`,     // IP 设定总览
+        `${STATIC_BASE}ai-nightingale-primitive-banner.webp`, // 原始人·夜莺机器人奔跑横幅海报
       ],
       // 视频 Demo（点击播放视频）
       videoSrc: `${STATIC_BASE}work-nightingale.mp4`,
@@ -245,6 +246,7 @@ export const works = {
       gallery: [
         `${STATIC_BASE}vi-poster-1.webp`, `${STATIC_BASE}vi-poster-2.webp`, `${STATIC_BASE}vi-poster-3.webp`,
         `${STATIC_BASE}vi-poster-4.webp`, `${STATIC_BASE}vi-poster-5.webp`, `${STATIC_BASE}vi-poster-6.webp`,
+        `${STATIC_BASE}vi-nightgale-delivery-2.jpg`, // 夜莺·京东物流送快递海报
       ],
       projectInfo: {
         bg: '为多个品牌与活动设计的商业海报合集，涵盖产品发布、节日营销、活动主视觉等场景。每张海报都围绕核心诉求构建独特的视觉叙事。',
