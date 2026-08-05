@@ -1,0 +1,18 @@
+# Netlify 部署配置 — 李文作品集
+# 作用：让 Netlify 自动构建时强制走根路径 base，避免 /portfolio/ 子路径导致资源 404
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  # 关键：与 Cloudflare 构建保持一致，使 vite base='/'、STATIC_BASE='/'（资源全部相对根）
+  CF_PAGES = "true"
+
+# 单页应用回退（本应用为锚点滚动，无硬路由；此项保留以防后续扩展路由）
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# 注：dist/_headers 已包含安全头与缓存策略，Netlify 会自动读取并生效
