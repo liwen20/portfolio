@@ -96,6 +96,22 @@ export const works = {
         `${STATIC_BASE}ai-nightingale-7-overview.webp`,     // IP 设定总览
         `${STATIC_BASE}ai-nightingale-primitive-banner.webp`, // 原始人·夜莺机器人奔跑横幅海报
       ],
+      // 品牌手册（PDF 转 WebP 无损图，点击展开详情弹窗）
+      brandManual: [
+        `${STATIC_BASE}brand-manual/brand-manual-01.webp`,
+        `${STATIC_BASE}brand-manual/brand-manual-02.webp`,
+        `${STATIC_BASE}brand-manual/brand-manual-03.webp`,
+        `${STATIC_BASE}brand-manual/brand-manual-04.webp`,
+        `${STATIC_BASE}brand-manual/brand-manual-05.webp`,
+        `${STATIC_BASE}brand-manual/brand-manual-06.webp`,
+        `${STATIC_BASE}brand-manual/brand-manual-07.webp`,
+        `${STATIC_BASE}brand-manual/brand-manual-08.webp`,
+        `${STATIC_BASE}brand-manual/brand-manual-09.webp`,
+        `${STATIC_BASE}brand-manual/brand-manual-10.webp`,
+        `${STATIC_BASE}brand-manual/brand-manual-11.webp`,
+        `${STATIC_BASE}brand-manual/brand-manual-12.webp`,
+        `${STATIC_BASE}brand-manual/brand-manual-13.webp`,
+      ],
       // 视频 Demo（点击播放视频）
       videoSrc: `${STATIC_BASE}work-nightingale.mp4`,
       projectInfo: {
