@@ -9,6 +9,7 @@ export default function Works() {
   const [selected, setSelected] = useState(null)
   const [videoItem, setVideoItem] = useState(null)
   const [liveItem, setLiveItem] = useState(null)
+  const [brandItem, setBrandItem] = useState(null)
 
   const currentWorks = works[active] || []
 
@@ -99,13 +100,23 @@ export default function Works() {
                     {work.projectInfo.duration}
                   </div>
                 )}
-                {/* project 类型：两个热区按钮 */}
+                {/* project 类型：功能栏按钮（品牌手册 / 产品图集 / 视频Demo） */}
                 {work.type === 'project' && (
                   <div className="mt-4 pt-4 border-t border-white/5 flex gap-2">
+                    {/* 品牌手册（排第一，主推；待 PDF 图片就位） */}
+                    {work.brandManual && (
+                      <button
+                        onClick={() => setBrandItem(work)}
+                        className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl text-sm font-medium bg-accent-orange/10 text-accent-orange border border-accent-orange/20 hover:bg-accent-orange/20 hover:border-accent-orange/40 transition-all"
+                      >
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4"><path d="M4 5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5z" /><path d="M13 3v5h5" /><path d="M8 13h8M8 17h6" /></svg>
+                        品牌手册
+                      </button>
+                    )}
                     {work.gallery?.length > 0 && (
                       <button
                         onClick={() => setSelected(work)}
-                        className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl text-sm font-medium bg-accent-orange/10 text-accent-orange border border-accent-orange/20 hover:bg-accent-orange/20 hover:border-accent-orange/40 transition-all"
+                        className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl text-sm font-medium bg-white/5 text-white border border-white/10 hover:border-accent-orange/30 hover:text-accent-orange transition-all"
                       >
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="9" cy="9" r="2" /><path d="M21 15l-5-5L5 21" /></svg>
                         产品图集
@@ -161,6 +172,42 @@ export default function Works() {
                 </div>
               </div>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* 品牌手册弹窗（PDF 转图展示，待用户上传图片） */}
+      {brandItem && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-bg/90 backdrop-blur-md animate-fade-in" onClick={() => setBrandItem(null)}>
+          <div className="glass-card max-w-5xl w-full max-h-[88vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+            {/* 头部 */}
+            <div className="sticky top-0 z-10 relative p-6 border-b border-white/5 bg-bg-card/95 backdrop-blur-xl">
+              <button onClick={() => setBrandItem(null)} className="absolute top-4 right-4 w-10 h-10 rounded-full bg-bg/60 flex items-center justify-center text-white hover:bg-bg transition">✕</button>
+              <div className="flex items-center gap-3 mb-2">
+                <span className="text-xs font-mono text-accent-orange uppercase tracking-wider">品牌手册</span>
+                <span className="text-xs text-text-dim">·</span>
+                <span className="text-xs font-mono text-text-dim">{brandItem.tag}</span>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold text-white">{brandItem.name} · 品牌手册</h3>
+              <p className="text-text-soft mt-2">夜莺航行品牌视觉系统总览，含 Logo、色彩、字体、角色、应用规范等。</p>
+            </div>
+
+            {/* 图片内容 */}
+            <div className="p-6">
+              {brandItem.brandManual?.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {brandItem.brandManual.map((src, i) => (
+                    <SmartImage key={i} src={src} alt={`${brandItem.name} 品牌手册 ${i + 1}`} className="rounded-xl" />
+                  ))}
+                </div>
+              ) : (
+                <div className="flex flex-col items-center justify-center py-20 text-center">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-12 h-12 text-text-dim mb-4"><path d="M4 5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5z" /><path d="M13 3v5h5" /><path d="M8 13h8M8 17h6" /></svg>
+                  <div className="text-white font-medium mb-1">品牌手册内容待上传</div>
+                  <div className="text-sm text-text-dim max-w-sm">PDF 图片就位后将在此处展示，当前为样式预览。</div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}
